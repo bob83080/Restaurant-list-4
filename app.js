@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const app = express()
 const port = 3001
 const exphbs = require('express-handlebars')
@@ -15,6 +16,15 @@ app.set('view engine', 'handlebars')
 app.use((bodyParser.urlencoded({ extended: true })))
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
+
+app.use(session({
+  secret: 'ThisIsMySecret',
+  resave: false,
+  saveUninitialized: true
+}))
+
+
+
 app.use(routes)
 
 
