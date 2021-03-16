@@ -15,25 +15,24 @@ require('./config/mongoose')
 
 app.engine('handlebars', exphbs({ defaultLayouts: 'main' }))
 app.set('view engine', 'handlebars')
-app.use((bodyParser.urlencoded({ extended: true })))
-app.use(express.static('public'))
-app.use(methodOverride('_method'))
-
-usePassport(app)
-
 app.use(session({
   secret: 'ThisIsMySecret',
   resave: false,
   saveUninitialized: true
 }))
 
+app.use((bodyParser.urlencoded({ extended: true })))
+app.use(express.static('public'))
+app.use(methodOverride('_method'))
+
+usePassport(app)
+
 app.use((req, res, next) => {
-  console.log(req.user)
+  // 你可以在這裡 console.log(req.user) 等資訊來觀察
   res.locals.isAuthenticated = req.isAuthenticated()
   res.locals.user = req.user
   next()
 })
-
 
 app.use(routes)
 
