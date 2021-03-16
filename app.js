@@ -21,7 +21,7 @@ app.use(session({
   saveUninitialized: true
 }))
 
-app.use((bodyParser.urlencoded({ extended: true })))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
 

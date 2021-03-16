@@ -1,24 +1,44 @@
-
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const restSchema = new Schema({
+const restaurantSchema = new Schema({
   name: {
     type: String,
     required: true
   },
-  userId: {  // 加入關聯設定
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    index: true,
+  category: {
+    type: String,
     required: true
   },
-  name_en: String,
-  category: String,
-  image: String,
-  location: String,
-  phone: String,
-  google_map: String,
-  rating: Number,
-  description: String
+  image: {
+    type: String,
+    required: true
+  },
+  location: {
+    type: String,
+    required: true
+  },
+  phone: {
+    type: String,
+    required: true
+  },
+  google_map: {
+    type: String,
+    required: true
+  },
+  rating: {
+    type: Number,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  userId: {
+    type: Schema.Types.ObjectId, // set relations between two data collections
+    ref: 'User', // refer to the User model
+    index: true, // use this key as a searching index
+    required: true
+  }
 })
-module.exports = mongoose.model('Restaurant', restSchema)
+
+module.exports = mongoose.model('Restaurant', restaurantSchema)
