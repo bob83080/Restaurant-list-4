@@ -1,8 +1,10 @@
 # 餐廳清單
 此項目提供餐廳列表與資訊，如餐廳的：地址、電話、評分、敘述...等。
-以 Visual Studio Code, Node.js, Express, Handlebars, mongoDB, mongoose 開發。
+以 Visual Studio Code, Node.js, Express, Handlebars, mongoDB, mongoose, passport(local & facebook), bcryptjs 開發。
 
 ## 項目功能
+* 網頁擁有帳密功能。
+* 可以以facebook 帳號登入
 * 使用者可以瀏覽全部所有餐廳。
 * 首頁提供餐廳名稱、類別、評分、照片。
 * 點擊首頁餐廳的圖示即可查閱詳細資訊，包括：餐廳地址、電話、敘述。
@@ -12,8 +14,8 @@
 * 可以新增、修改、搜尋及刪除餐廳。
 
 ## 專案畫面
-
-![Home page](/public/restaurant-index.JPG)
+![Login page](/public/restaurant-login.JPG)
+![Home page](/public/restaurant-homepg.JPG)
 ![Restaurant page](/public/restaurant-show.JPG)
 
 ## Installing - 專案安裝流程
