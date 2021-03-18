@@ -16,7 +16,7 @@ router.get('/:id', (req, res) => {
 router.post('/new', (req, res) => {
   const userId = req.user._id
   if (req.body.image.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
-  const { name, category, image, location, phone, rating, description } = req.body
+  const { name, category, image, location, phone, google_map, rating, description } = req.body
   return Restaurant.create({ name, category, image, location, phone, google_map, rating, description, userId })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
@@ -48,7 +48,7 @@ router.put('/:id', (req, res) => {
       restaurant.description = req.body.description
       return restaurant.save()
     })
-    .then(() => res.redirect(`/restaurant/${id}`))
+    .then(() => res.redirect(`/restaurant/${_id}`))
     .catch(error => console.log(error))
 })
 // --------刪除頁面-------- //
